@@ -155,4 +155,25 @@ if ("serviceWorker" in navigator) {
   });
 }
 
+
+let deferredInstallPrompt;
+
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+});
+
+document.addEventListener("click", async (event) => {
+  const button = event.target.closest("#downloadNow");
+  if (!button) return;
+
+  if (deferredInstallPrompt) {
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+  } else {
+    alert("To install Nimma Visual, open Chrome menu (⋮) and tap Install app.");
+  }
+});
+
 </script></body></html>
