@@ -1,1 +1,10 @@
 
+{
+  "name": "Nimma Visual",
+  "short_name": "Nimma Visual",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#080914",
+  "theme_color": "#080914"
+}
